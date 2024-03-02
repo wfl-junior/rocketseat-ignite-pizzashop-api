@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1709400575466,
+      "tag": "0000_curly_mimic",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1709400687614,
+      "tag": "0001_moaning_marvel_apes",
+      "breakpoints": true
+    }
+  ]
+}
