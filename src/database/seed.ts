@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { fakerPT_BR as faker } from "@faker-js/faker";
 import chalk from "chalk";
 import { database } from ".";
 import { restaurants, users } from "./schema";
@@ -7,23 +7,25 @@ import { restaurants, users } from "./schema";
 await database.delete(users);
 await database.delete(restaurants);
 
-console.log(chalk.yellow("✅ Database reset!"));
+console.log(chalk.green("✅ Database reset!"));
 
 // Create customers
 await database.insert(users).values([
   {
     name: faker.person.fullName(),
     email: faker.internet.email(),
+    phone: faker.phone.number(),
     role: "customer",
   },
   {
     name: faker.person.fullName(),
     email: faker.internet.email(),
+    phone: faker.phone.number(),
     role: "customer",
   },
 ]);
 
-console.log(chalk.yellow("✅ Created customers!"));
+console.log(chalk.green("✅ Created customers!"));
 
 // Create manager
 const [manager] = await database
@@ -31,11 +33,12 @@ const [manager] = await database
   .values({
     name: faker.person.fullName(),
     email: "admin@admin.com",
+    phone: faker.phone.number(),
     role: "manager",
   })
   .returning({ id: users.id });
 
-console.log(chalk.yellow("✅ Created manager!"));
+console.log(chalk.green("✅ Created manager!"));
 
 // Create restaurant
 await database.insert(restaurants).values({
@@ -44,6 +47,6 @@ await database.insert(restaurants).values({
   description: faker.lorem.paragraph(),
 });
 
-console.log(chalk.yellow("✅ Created restaurant!"));
+console.log(chalk.green("✅ Created restaurant!"));
 console.log(chalk.greenBright("Database seeded successfully!"));
 process.exit(0);

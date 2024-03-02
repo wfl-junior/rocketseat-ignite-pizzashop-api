@@ -10,18 +10,18 @@ const app = new Elysia().post(
       const [manager] = await transaction
         .insert(users)
         .values({
+          role: "manager",
           name: body.manager.name,
           email: body.manager.email,
           phone: body.manager.phone,
-          role: "manager",
         })
         .returning({ id: users.id });
 
       const [restaurant] = await transaction
         .insert(restaurants)
         .values({
-          managerId: manager.id,
           name: body.name,
+          managerId: manager.id,
         })
         .returning();
 
