@@ -1,15 +1,17 @@
 import { createId } from "@paralleldrive/cuid2";
 import chalk from "chalk";
-import { Elysia, t } from "elysia";
+import { eq } from "drizzle-orm";
+import { t } from "elysia";
 import { database } from "../database";
-import { authLinks } from "../database/schema";
+import { authLinks, users } from "../database/schema";
+import { elysia } from "../elysia";
 import { env } from "../env";
 
-export const sendAuthLinkRouter = new Elysia().post(
+export const sendAuthLinkRouter = elysia.post(
   "/authenticate",
   async ({ body, request, set }) => {
     const user = await database.query.users.findFirst({
-      where: (fields, { eq }) => eq(fields.email, body.email),
+      where: eq(users.email, body.email),
     });
 
     if (!user) {

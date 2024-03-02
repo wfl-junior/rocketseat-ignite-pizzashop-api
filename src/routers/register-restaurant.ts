@@ -1,8 +1,9 @@
-import { Elysia, t } from "elysia";
+import { t } from "elysia";
 import { database } from "../database";
 import { restaurants, users } from "../database/schema";
+import { elysia } from "../elysia";
 
-export const registerRestaurantRouter = new Elysia().post(
+export const registerRestaurantRouter = elysia.post(
   "/restaurants",
   async ({ body, set }) => {
     const restaurant = await database.transaction(async transaction => {
