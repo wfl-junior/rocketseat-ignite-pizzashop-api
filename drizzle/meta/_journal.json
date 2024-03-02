@@ -29,6 +29,13 @@
       "when": 1709403209698,
       "tag": "0003_broken_frog_thor",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1709415780645,
+      "tag": "0004_solid_victor_mancha",
+      "breakpoints": true
     }
   ]
 }
