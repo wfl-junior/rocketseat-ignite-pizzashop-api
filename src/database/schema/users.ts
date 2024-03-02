@@ -15,7 +15,7 @@ export const users = pgTable("users", {
     .$defaultFn(() => new Date()),
 
   name: varchar("name").notNull(),
-  email: varchar("name").notNull().unique(),
+  email: varchar("email").notNull().unique(),
   phone: varchar("phone"),
   role: userRoleEnum("role").default("customer").notNull(),
 });

@@ -9,5 +9,5 @@ const database = drizzle(connection);
 
 await migrate(database, { migrationsFolder: "drizzle" });
 await connection.end();
-console.log(chalk.greenBright("Migrations applied successfully"));
+console.log(chalk.greenBright("Migrations applied successfully!"));
 process.exit(0);
