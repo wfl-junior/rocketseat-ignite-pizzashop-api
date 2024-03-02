@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
@@ -8,5 +9,5 @@ const database = drizzle(connection);
 
 await migrate(database, { migrationsFolder: "drizzle" });
 await connection.end();
-console.log("Finished migrating drizzle");
+console.log(chalk.greenBright("Migrations applied successfully"));
 process.exit(0);
