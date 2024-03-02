@@ -13,7 +13,24 @@ const app = elysia
   .use(authenticateFromLinkRouter)
   .use(signOutRouter)
   .use(getProfileRouter)
-  .use(getManagedRestaurantRouter);
+  .use(getManagedRestaurantRouter)
+  .onError(({ code, error, set }) => {
+    switch (code) {
+      case "VALIDATION": {
+        set.status = error.status;
+        return error.toResponse();
+      }
+      default: {
+        set.status = 500;
+        console.error(error);
+
+        return {
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Houston, we have a problem",
+        };
+      }
+    }
+  });
 
 app.listen(env.PORT, server => {
   console.log(`HTTP server running at http://localhost:${server.port} 🚀`);
