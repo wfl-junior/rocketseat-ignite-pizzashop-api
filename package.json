@@ -19,12 +19,14 @@
     "dayjs": "^1.11.10",
     "drizzle-orm": "^0.29.4",
     "elysia": "^0.8.17",
+    "nodemailer": "^6.9.11",
     "postgres": "^3.4.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@types/bun": "latest",
+    "@types/nodemailer": "^6.4.14",
     "drizzle-kit": "^0.20.14",
     "typescript": "^5.3.3"
   }
