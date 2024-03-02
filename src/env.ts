@@ -9,6 +9,7 @@ const envSchema = z.object({
 
   // Auth
   AUTH_REDIRECT_URL: z.string().url(),
+  JWT_SECRET: z.string().min(1),
 
   // Drizzle
   DATABASE_CONNECTION_STRING: z.string().url(),
