@@ -9,9 +9,9 @@ export const authLinks = pgTable("auth_links", {
     .defaultNow()
     .$defaultFn(() => new Date()),
 
-  userId: char("user_id", { length: 24 }).references(() => users.id, {
-    onDelete: "set null",
-  }),
+  userId: char("user_id", { length: 24 })
+    .notNull()
+    .references(() => users.id, { onDelete: "set null" }),
 
   code: varchar("code").notNull().unique(),
 });

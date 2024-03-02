@@ -24,6 +24,7 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "noPropertyAccessFromIndexSignature": false
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false
   }
 }

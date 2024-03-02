@@ -7,6 +7,9 @@ const envSchema = z.object({
     .optional()
     .default("production"),
 
+  // Auth
+  AUTH_REDIRECT_URL: z.string().url(),
+
   // Drizzle
   DATABASE_CONNECTION_STRING: z.string().url(),
 });
